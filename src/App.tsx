@@ -1,10 +1,13 @@
 import { reactLogo } from "./logos";
 import "./App.css";
+import { headline } from "./Components/Headline";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        {headline()}
+        {/*
         {reactLogo()}
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        */}
       </header>
     </div>
   );
