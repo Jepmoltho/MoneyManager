@@ -26,12 +26,17 @@ export default function RetirementCalculator() {
 
   //prettier-ignore
   const handleChangeRetirenmentAge = () => {
-    let ageAsNum = parseInt(age);
-    let incomeAsNum = parseInt(annualIncome);
-    let expenseAsNum = parseInt(annualExpenses);
-    let networthAsNum = parseInt(currentNetworth);
+    let ageAsNum : number = parseInt(age);
+    let incomeAsNum : number = parseInt(annualIncome);
+    let expenseAsNum : number = parseInt(annualExpenses);
+    let networthAsNum : number = parseInt(currentNetworth);
 
-    setRetirenmentAge(ageAsNum + incomeAsNum + expenseAsNum + networthAsNum);
+    let assetTarget : number = (expenseAsNum / 4) * 100;
+    let unachieved : number = assetTarget - networthAsNum;
+
+    let yearToRetirenment : number = Math.round(unachieved / incomeAsNum * 100) / 100; 
+
+    setRetirenmentAge(yearToRetirenment);
   };
 
   return (
@@ -78,7 +83,7 @@ export default function RetirementCalculator() {
           <button onClick={() => handleChangeRetirenmentAge()}>
             Press me sempai
           </button>
-          <h2>{retirenmentAge}</h2>
+          <h2>You can retire in {retirenmentAge} years!</h2>
         </div>
       </div>
     </div>
