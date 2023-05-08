@@ -1,0 +1,8 @@
+* Define an interface and use it as props: Best practice, define props in the interface and pass them into the component.
+* Use webscraping to get the most current value of different loans and save them in JSON format and allow user to choose in a dropdown 
+* Implement chatGPT
+* Use generic types
+* Figure out this syntax <>
+* Define function types in an interface and use them as props 
+* Higher Order Component: Write a function that create a component where we keep the similiarities and pass the differences for each to the component 
+* Install React Developer Tools extention 

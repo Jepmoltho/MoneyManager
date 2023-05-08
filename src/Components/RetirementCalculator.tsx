@@ -1,19 +1,15 @@
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import Button from "@mui/material/Button";
+import ResultText from "./ResultText";
+//import { useTheme } from "@mui/material/styles";
 
-export default function RetirementCalculator() {
-  //const [age, setAge] = useState<string>("");
+export default function RetirementCalculator(): JSX.Element {
+  //const theme = useTheme();
   const [annualIncome, setAnnualIncome] = useState<string>("");
   const [annualExpenses, setAnnualExpenses] = useState<string>("");
   const [currentNetworth, setCurrentNetworth] = useState<string>("");
   const [retirenmentAge, setRetirenmentAge] = useState<number>(0);
-
-  /*
-  const handleChangeAge = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAge(event.target.value);
-  };
-  */
 
   const handleChangeIncome = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAnnualIncome(event.target.value);
@@ -29,7 +25,6 @@ export default function RetirementCalculator() {
 
   //prettier-ignore
   const handleChangeRetirenmentAge = () => {
-    //let ageAsNum : number = parseInt(age);
     let income : number = parseInt(annualIncome);
     let expenses : number = parseInt(annualExpenses);
     let yearlySavings : number = income - expenses;
@@ -49,17 +44,6 @@ export default function RetirementCalculator() {
     <div className="retirenment-calculator-container">
       <div className="container">
         <div className="row">
-          {/*
-          <TextField
-            className="input-text-field"
-            required
-            label="Age"
-            title="Test"
-            type="number"
-            onChange={handleChangeAge}
-            value={age}
-          />
-          */}
           <TextField
             className="input-text-field"
             required
@@ -67,6 +51,7 @@ export default function RetirementCalculator() {
             type="number"
             onChange={handleChangeIncome}
             value={annualIncome}
+            /*color={"primary"}*/
           />
           <TextField
             className="input-text-field"
@@ -75,6 +60,7 @@ export default function RetirementCalculator() {
             type="number"
             onChange={handleChangeExpenses}
             value={annualExpenses}
+            color={"error"}
           ></TextField>
           <TextField
             className="input-text-field"
@@ -94,13 +80,11 @@ export default function RetirementCalculator() {
           >
             Calculate
           </Button>
-          {/*
-          <h3>
-            With annual expenses of {annualExpenses} you need to have
-            approximatly {parseInt(annualExpenses) * 25} worth of assets
-          </h3>
-         */}
-          <h2>You can retire in {retirenmentAge} years!</h2>
+          <ResultText
+            beginningText="You can retire in "
+            calculation={retirenmentAge}
+            endText=" years!"
+          ></ResultText>
         </div>
       </div>
     </div>
