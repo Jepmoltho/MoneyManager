@@ -1,6 +1,6 @@
 interface ResultGreeting {
   beginningText: string;
-  calculation: number;
+  calculation?: number | string;
   endText?: string;
 }
 

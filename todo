@@ -1,4 +1,5 @@
-* Define an interface and use it as props: Best practice, define props in the interface and pass them into the component.
+Practice 
+* Define an interface and use it as props: Done 
 * Use webscraping to get the most current value of different loans and save them in JSON format and allow user to choose in a dropdown 
 * Implement chatGPT
 * Use generic types
@@ -6,3 +7,22 @@
 * Define function types in an interface and use them as props 
 * Higher Order Component: Write a function that create a component where we keep the similiarities and pass the differences for each to the component 
 * Install React Developer Tools extention 
+
+Calculators 
+* FIRE calculator
+* Mortgage extrodinary payment
+* How much money will a bank lend me 
+* Sectin with: How is this calculated (accordion style dropdown in the bottom)
+* Kurs vs. principal calculator (do i take 5% loan at 99 or 4% at 94)
+
+FIRE calculator  
+* Start average amount and update dynamically 
+* Add currency 
+* Dropdown is set with cursor starting at 4% and indicates midFIRE. Goes up and down to fat/low fire, that change color as a gradient of color theme. 
+* Indicate the FIRE number as this is key number 
+* Transform decimals to months  
+* Add decimals to input numbers 
+
+
+General funcitonality 
+* Darkmode/lightmode switch 
