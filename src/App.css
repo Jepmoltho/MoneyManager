@@ -14,7 +14,6 @@
 }
 
 .App-header {
-  /*background-color: #f4f4f4;*/
   background-color: #121212;
   min-height: 100vh;
   display: flex;
@@ -53,3 +52,70 @@ h2 {
 p {
   color: #9e9e9e;
 }
+
+/*
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.input-container label {
+  margin-right: 10px;
+  font-size: 1.2rem;
+  width: 150px;
+}
+
+.input-container input {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.button-container {
+  margin-top: 30px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+.results-container {
+  margin-top: 50px;
+  font-size: 1.2rem;
+}
+
+.result-label {
+  margin-bottom: 10px;
+}
+
+.result-value {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+*/
