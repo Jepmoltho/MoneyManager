@@ -5,7 +5,7 @@ import RetirementCalculatorNew from "./Components/RetirenmentCalculatorNew";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./Components/ColorTheme";
 import Test from "./Components/Test";
-
+import AIJS from "./Components/AIJS";
 //import TextField from "@mui/material/TextField";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <header className="App-header">
           <div>{headline()}</div>
           <RetirementCalculator></RetirementCalculator>
-
+          <AIJS></AIJS>
           {/*<RetirementCalculatorNew></RetirementCalculatorNew>*/}
         </header>
       </div>
