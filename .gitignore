@@ -3,6 +3,7 @@
 #security
 confiq.json
 src/confiq.json
+.json
 
 # dependencies
 /node_modules
