@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi } from "openai";
 //import readline from "readline";
 //import fs from "fs";
 import { useState } from "react";
-import config from "../confiq.json";
+import config from "./confiq.json";
 
 export default function AIJS() {
   const [message, setMessage] = useState("");
