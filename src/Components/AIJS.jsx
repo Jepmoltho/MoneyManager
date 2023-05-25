@@ -2,40 +2,19 @@ import { Configuration, OpenAIApi } from "openai";
 //import readline from "readline";
 //import fs from "fs";
 import { useState } from "react";
+import config from "../confiq.json";
 
 export default function AIJS() {
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
-  //
-  /*
-  const confiq = require("../confiq.js");
-  const apiKey = confiq.apiKey;
-  const organisationID = confiq.organisationID;
-  */
-  //
-  /*
-  const confiqData = fs.readFileSync("../confiq.json");
-  const confiq = JSON.parse(confiqData);
-  const apiKey = confiq.apiKey;
-  const organisationID = confiq.organisationID;
-*/
-  //
-
-  /*
-const configuraiton = new Configuration({
-  organization: organisationID,
-  apiKey: apiKey,
-});
-*/
   const configuration = new Configuration({
-    apiKey: "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",
-    organisationID: "org-wvSADBnWKLULbwKjbCa3sDR5",
+    apiKey: config.apiKey,
+    organisationID: config.organisationID,
   });
 
   const openai = new OpenAIApi(configuration);
-  //let msgs: { role: string; content: any }[] = [];
 
   const chat = async (e, message) => {
     e.preventDefault();
