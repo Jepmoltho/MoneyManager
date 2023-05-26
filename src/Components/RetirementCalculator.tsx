@@ -2,6 +2,7 @@ import TextField from "@mui/material/TextField";
 import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import ResultText from "./ResultText";
+import Headline from "./Headline"; //"./Headline";
 //import { useTheme } from "@mui/material/styles";
 
 export default function RetirementCalculator(): JSX.Element {
@@ -83,6 +84,8 @@ export default function RetirementCalculator(): JSX.Element {
   return (
     <div className="retirenment-calculator-container">
       <div className="container">
+        {/*<div>{headline()}</div>*/}
+        <Headline />
         <div className="row">
           <TextField
             className="input-text-field"
