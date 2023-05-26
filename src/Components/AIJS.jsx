@@ -1,32 +1,36 @@
 import { Configuration, OpenAIApi } from "openai";
-//import readline from "readline";
-//import fs from "fs";
 import { useState } from "react";
 import config from "./confiq.json";
 
 export default function AIJS() {
+  //Input message
   const [message, setMessage] = useState("");
+  //Array of messages
   const [chats, setChats] = useState([]);
+  //Is chatGPT in the process of replying
   const [isTyping, setIsTyping] = useState(false);
 
+  //API configuration
   const configuration = new Configuration({
     apiKey: config.apiKey,
     organisationID: config.organisationID,
   });
 
+  //openai object
   const openai = new OpenAIApi(configuration);
 
-  const chat = async (e, message) => {
+  async function chat(e, message) {
     e.preventDefault();
-    if (!message) return;
-    setIsTyping(true);
-    //
-    //
-    let msgs = chats;
-    msgs.push({ role: "user", content: message });
-    setChats(msgs);
 
-    setMessage("");
+    if (message.length < 1) {
+      return null;
+    }
+
+    setIsTyping(true);
+
+    let messages = chats;
+    const userMessage = { role: "user", content: message };
+    messages.push(userMessage);
 
     await openai
       .createChatCompletion({
@@ -37,50 +41,67 @@ export default function AIJS() {
             content:
               "You are a EbereGPT. You can help with money related tasks",
           },
-          ...chats,
+          ...messages,
         ],
       })
-      .then((res) => {
-        msgs.push(res.data.choices[0].message);
-        setChats(msgs);
+      .then((response) => {
+        const newMessage = response.data.choices[0].message;
+        const updatedChats = [...messages, newMessage];
+        setChats(updatedChats);
         setIsTyping(false);
-        //scrollTo(0, 1e10);
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+
+    setMessage("");
+  }
+
+  function displayChatMessages() {
+    if (chats && chats.length > 0) {
+      return chats.map((chat, index) => (
+        <p key={index}>
+          <span>
+            <b>{chat.role.toUpperCase()}</b>
+          </span>
+          <span>:</span>
+          <span>{chat.content}</span>
+        </p>
+      ));
+    } else {
+      return null;
+    }
+  }
+
+  function displayIsTyping() {
+    if (isTyping === true) {
+      return (
+        <div>
+          <p>
+            <i>Typing</i>
+          </p>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
 
   return (
     <div>
       <h2>Chat to an AI money expert</h2>
-      <section>
-        {chats && chats.length
-          ? chats.map((chat, index) => (
-              <p key={index} className={chat.role === "user" ? "user_msg" : ""}>
-                <span>
-                  <b>{chat.role.toUpperCase()}</b>
-                </span>
-                <span>:</span>
-                <span>{chat.content}</span>
-              </p>
-            ))
-          : ""}
-      </section>
-      <form action="" onSubmit={(e) => chat(e, message)}>
+      <section>{displayChatMessages()}</section>
+
+      <form onSubmit={(e) => chat(e, message)}>
         <input
           type="text"
           name="message"
           value={message}
-          placeholder="Type a message here and hit Enter..."
+          placeholder="Enter text here sempai"
           onChange={(e) => setMessage(e.target.value)}
-        />
+        ></input>
       </form>
-      <div className={isTyping ? "" : "hide"}>
-        <p>
-          <i>{isTyping ? "Typing" : ""}</i>
-        </p>
-      </div>
+      {displayIsTyping()}
     </div>
   );
 }
