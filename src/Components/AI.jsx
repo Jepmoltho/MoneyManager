@@ -1,6 +1,6 @@
 import { Configuration, OpenAIApi } from "openai";
 import { useState } from "react";
-import config from "..confiq.json/"; // "./confiq.json";
+import config from "../confiq.json";
 
 export default function AIJS() {
   //Input message
