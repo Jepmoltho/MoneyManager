@@ -62,7 +62,7 @@ export default function RetirementCalculator(): JSX.Element {
   };
 
   function returnRetirenmentAge(props: number) {
-    if (props == 0) {
+    if (props === 0) {
       return <ResultText beginningText="You can retire now! "></ResultText>;
     }
     if (props > 0) {
