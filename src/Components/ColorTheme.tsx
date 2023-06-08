@@ -1,6 +1,36 @@
 import { createTheme } from "@mui/material/styles";
 import { green, yellow, grey, red } from "@mui/material/colors";
 
+// Extend the existing ThemeOptions interface to include the light mode palette
+
+export const theme = createTheme({
+  palette: {
+    background: {
+      default: grey[900],
+      paper: grey[800],
+    },
+    primary: {
+      main: "#4CAF50",
+      light: green[400],
+      dark: green[800],
+    },
+    secondary: {
+      main: yellow[500],
+      light: yellow[200],
+      dark: yellow[800],
+    },
+    text: {
+      primary: grey[100],
+      secondary: grey[500],
+    },
+    error: {
+      main: red[500],
+      light: yellow[200],
+      dark: yellow[800],
+    },
+  },
+});
+/*
 export const theme = createTheme({
   palette: {
     mode: "dark",
@@ -29,6 +59,8 @@ export const theme = createTheme({
     },
   },
 });
+
+*/
 /*
   palette: {
     primary: {

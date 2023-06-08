@@ -32,6 +32,10 @@ export default function AIJS() {
     const userMessage = { role: "user", content: message };
     messages.push(userMessage);
 
+    /*
+    
+    */
+
     await openai
       .createChatCompletion({
         model: "gpt-3.5-turbo",

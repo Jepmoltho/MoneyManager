@@ -1,12 +1,9 @@
 import TextField from "@mui/material/TextField";
 import { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
 import ResultText from "./ResultText";
-import Headline from "./Headline"; //"./Headline";
-//import { useTheme } from "@mui/material/styles";
+import Headline from "./Headline";
 
-export default function RetirementCalculator(): JSX.Element {
-  //const theme = useTheme();
+export default function RetirementCalculator(props: any): JSX.Element {
   const [annualIncome, setAnnualIncome] = useState<string>("400000");
   const [annualExpenses, setAnnualExpenses] = useState<string>("150000");
   const [currentNetworth, setCurrentNetworth] = useState<string>("100000");
@@ -50,15 +47,12 @@ export default function RetirementCalculator(): JSX.Element {
     
     //Because everything is calculated by yearm, we find how many more times/years you need your average yearly savings to reach your asset target 
     //let yearToRetirenment : number = Math.round(unachieved / yearlySavings * 10) / 10; 
-    
+    /*
     console.log("networth " + networth);
-
     console.log("Asset target " + assetTarget);
-
     console.log("Unachieved " + unachieved);
-
     console.log("years to retire " + yearToRetirenment);
-
+    */
     setRetirenmentAge(yearToRetirenment);
   };
 
@@ -81,10 +75,10 @@ export default function RetirementCalculator(): JSX.Element {
     }
   }
 
+  //const inputTextColor = { input: { color: "black" } };
   return (
     <div className="retirenment-calculator-container">
       <div className="container">
-        {/*<div>{headline()}</div>*/}
         <Headline />
         <div className="row">
           <TextField
@@ -94,7 +88,7 @@ export default function RetirementCalculator(): JSX.Element {
             type="tel"
             onChange={handleChangeIncome}
             value={annualIncome}
-            /*color={"primary"}*/
+            sx={props.textcolor}
           />
           <TextField
             className="input-text-field"
@@ -104,6 +98,7 @@ export default function RetirementCalculator(): JSX.Element {
             onChange={handleChangeExpenses}
             value={annualExpenses}
             color={"error"}
+            sx={props.textcolor}
           ></TextField>
           <TextField
             className="input-text-field"
@@ -112,10 +107,12 @@ export default function RetirementCalculator(): JSX.Element {
             type="tel"
             onChange={handleChangeNetworth}
             value={currentNetworth}
+            sx={props.textcolor}
           ></TextField>
         </div>
 
         <div className="retirenmentAge">
+          {/*
           <Button
             className="calculate-rc"
             variant="contained"
@@ -123,6 +120,7 @@ export default function RetirementCalculator(): JSX.Element {
           >
             Calculate
           </Button>
+          */}
           <ResultText
             beginningText="To never work again, you need: "
             calculation={(parseInt(annualExpenses) * 25).toLocaleString(
@@ -131,13 +129,6 @@ export default function RetirementCalculator(): JSX.Element {
             )}
           ></ResultText>
           {returnRetirenmentAge(retirenmentAge)}
-          {/*
-          <ResultText
-            beginningText="You can retire in "
-            calculation={retirenmentAge}
-            endText=" years!"
-          ></ResultText>
-          */}
         </div>
       </div>
     </div>

@@ -8,28 +8,34 @@ function FinancialCalculatorAccordion(props: any) {
   };
 
   return (
-    <div className="accordion">
-      <div className="tabs">
+    <div className="tabs">
+      <div className="tabs-container">
         <div
           className={`tab ${activeTab === 0 ? "active" : ""}`}
           onClick={() => handleTabChange(0)}
         >
-          Tab 1
+          Retire
         </div>
         <div
           className={`tab ${activeTab === 1 ? "active" : ""}`}
           onClick={() => handleTabChange(1)}
         >
-          Tab 2
+          AI Budget Booster
         </div>
         <div
           className={`tab ${activeTab === 2 ? "active" : ""}`}
           onClick={() => handleTabChange(2)}
         >
-          Tab 3
+          Mortgage
+        </div>
+        <div
+          className={`tab ${activeTab === 3 ? "active" : ""}`}
+          onClick={() => handleTabChange(3)}
+        >
+          Coming Soon...
         </div>
       </div>
-      <div className="content">
+      <div className="tab-content">
         {activeTab === 0 && (
           <div>
             {props.fire}
@@ -45,6 +51,12 @@ function FinancialCalculatorAccordion(props: any) {
           </div>
         )}
         {activeTab === 2 && (
+          <div>
+            {/* Financial Calculator 3 */}
+            {/* Render the content for the third tab */}
+          </div>
+        )}
+        {activeTab === 3 && (
           <div>
             {/* Financial Calculator 3 */}
             {/* Render the content for the third tab */}
