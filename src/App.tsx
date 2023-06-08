@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Switch from "@mui/material/Switch";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   const textFieldLightMode = {
     input: { color: "#121212" },
@@ -19,17 +19,18 @@ function App() {
       },
     },
   };
+
   const textFieldDarkMode = {
     input: { color: "#f5f5f5" },
     "& .MuiOutlinedInput-notchedOutline": {
       borderColor: "#f5f5f5", // Replace "red" with your desired border color
       "&:hover fieldset": {
-        borderColor: "black", // Replace with your desired border color
+        borderColor: "#f5f5f5", // Replace with your desired border color
       },
     },
   };
 
-  const [inputTextColor, setInputTextColor] = useState(textFieldLightMode);
+  const [inputTextColor, setInputTextColor] = useState(textFieldDarkMode);
 
   //prettier-ignore
   useEffect(() => {
